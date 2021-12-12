@@ -1,18 +1,13 @@
 from flask import Flask, redirect, url_for
-
+from flask import render_template
 app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
-    return 'this is home!'
+userNameVar = ''
 
 @app.route('/home')
-def home():
-    return redirect('/')
-
-@app.route('/urlForEx')
-def ex():
-    return redirect(url_for('hello_world'))
+@app.route('/')
+def index():
+    return render_template('cv.html')
 
 
 if __name__ == '__main__':
