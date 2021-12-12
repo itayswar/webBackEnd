@@ -1,12 +1,26 @@
 {% extends 'cv.html' %}
 
 {% block example %}
+    {{   super() }}
+    {% if hobbies %}
+        <h3 class="section-title">Hobbies</h3>
+        <ul>
+            {% for h in hobbies %}
+                <li>{{ h | upper }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3 class="section-title">No Hobbies</h3>
+    {% endif %}
 
-    <h3 class="section-title">Hobbies</h3>
-    <ul>
-        {% for h in hobbies %}
-            <li>{{ h | upper }}</li>
-        {% endfor %}
-
-    </ul>
+        {% if movies %}
+        <h3 class="section-title">Movies</h3>
+        <ul>
+            {% for m in movies %}
+                <li>{{ m | upper }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3 class="section-title">No Movies</h3>
+    {% endif %}
 {% endblock %}

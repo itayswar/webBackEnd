@@ -2,7 +2,6 @@ from flask import Flask, redirect, url_for
 from flask import render_template
 app = Flask(__name__)
 
-userNameVar = ''
 
 @app.route('/')
 def index():
@@ -10,7 +9,7 @@ def index():
 
 @app.route('/assignment8')
 def ass8():
-    return render_template('hobbies.html', hobbies=['sport', 'movies', 'reading'])
+    return render_template('hobbies.html', hobbies=['sport', 'hunting', 'reading'], movies=['matrix', 'harry potter', 'die hard'] )
 
 
 
