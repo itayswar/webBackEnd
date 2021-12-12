@@ -4,10 +4,17 @@ app = Flask(__name__)
 
 userNameVar = ''
 
-@app.route('/home')
 @app.route('/')
 def index():
     return render_template('cv.html')
+
+@app.route('/assignment8')
+def ass8():
+    return render_template('hobbies.html', hobbies=['sport', 'movies', 'reading'])
+
+
+
+
 
 
 if __name__ == '__main__':

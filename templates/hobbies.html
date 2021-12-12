@@ -1,0 +1,12 @@
+{% extends 'cv.html' %}
+
+{% block example %}
+
+    <h3 class="section-title">Hobbies</h3>
+    <ul>
+        {% for h in hobbies %}
+            <li>{{ h | upper }}</li>
+        {% endfor %}
+
+    </ul>
+{% endblock %}
