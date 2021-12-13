@@ -9,7 +9,9 @@ def index():
 
 @app.route('/assignment8')
 def ass8():
-    return render_template('hobbies.html', hobbies=['sport', 'hunting', 'reading'], movies=['matrix', 'harry potter', 'die hard'] )
+    return render_template('hobbies.html',
+                           hobbies=['sport', 'hunting', 'reading'],
+                           movies=['matrix', 'harry potter', 'die hard'] )
 
 
 
