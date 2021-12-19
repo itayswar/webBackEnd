@@ -13,6 +13,10 @@
         <!-- חלק א' - מסך צד שמאל -->
 	    <section class="profile section-padding">
 		    <div class="container">
+                    {% if session['name'] %}
+                    <h1> Welcome {{ session['name'] }}</h1>
+                    {% endif %}
+
 			    <div class="picture-resume-wrapper">
                     <div class="picture-resume">
                       <span><img src='{{ url_for('static', filename='profileCV.png') }}' alt="" /></span>

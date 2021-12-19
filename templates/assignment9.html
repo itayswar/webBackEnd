@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ass9</title>
+    {% include 'include_css.html' %}
+</head>
+<body>
+    <h1> Curr method: {{ currMethod }}</h1>
+    <h1> ________________________________________________________________</h1>
+    <h1> search form</h1>
+    {% if messege == 'first' %}
+    <h2> Type name to search, keep blank to get all</h2>
+    {% else %}
+    <h2> {{ messege }}</h2>
+    {% endif %}
+    <h1> </h1>
+
+    <form method="get" action="/assignment9">
+        <h2> name </h2>
+        <input name = 'name'>
+        <input type = submit>
+    </form>
+
+        <h1>_________________________________________________________________ </h1>
+
+    {% if session['name'] %}
+        <h1> Welcome {{ session['name'] }}</h1>
+        <form method="post", action="/assignment9">
+            <h1> Submit to logout</h1>
+            <input type = submit >
+        </form>
+    {% else %}
+    <h1> registration form</h1>
+    <form method="post" action="/assignment9">
+        <h2> name </h2>
+        <input name = 'name'>
+        <input name = 'submit_r' type = submit>
+    </form>
+    {% endif %}
+
+</body>
+</html>
