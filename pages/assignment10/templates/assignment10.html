@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ass 10</title>
+</head>
+<body>
+    <h3> Method: {{ currMethod }}</h3>
+
+<h1>_______________________________________________________________________________</h1>
+    <h1> insert form</h1>
+    <form method="post" action="/insert_user">
+        <h2> name </h2>
+        <input name = 'nameIns' minlength="2">
+        <input type = submit>
+    </form>
+<h1>_______________________________________________________________________________</h1>
+
+    <h1> update form</h1>
+    <form method="post" action="/update_user">
+        <h2> old name </h2>
+        <input name = 'nameOld' minlength="2">
+        <h2> new name </h2>
+        <input name = 'nameNew' minlength="2">
+        <input type = submit>
+    </form>
+<h1>_______________________________________________________________________________</h1>
+
+    <h1> delete form</h1>
+    <form method="post" action="/delete_user">
+        <h2> name </h2>
+        <input name = 'nameDlt' minlength="2">
+        <input type = submit>
+    </form>
+<h1>_______________________________________________________________________________</h1>
+
+    <h1> search form</h1>
+    <form method="get" action="/get_user">
+        <h2> press to see all users </h2>
+        <input type = submit>
+    </form>
+<h1>_______________________________________________________________________________</h1>
+
+    {% if messege %}
+        <h1> {{ messege }}</h1>
+    {% endif %}
+</body>
+</html>

@@ -1,9 +1,18 @@
 from flask import Flask, redirect, url_for, request
-from flask import render_template , session
-app = Flask(__name__)
+from flask import render_template , session, blueprints
+import mysql.connector
 
+app = Flask(__name__)
 users  = ['Itay', 'Yossi', 'Dana', 'Mor', 'Yuval']
 app.secret_key = '123'
+
+# ------------------------------------------------- #
+# ------------- DATABASE CONNECTION --------------- #
+# ------------------------------------------------- #
+## assignment10
+from pages.assignment10.assignment10 import assignment10
+app.register_blueprint(assignment10)
+
 
 @app.route('/')
 def index():
@@ -41,6 +50,7 @@ def ass9():
                            messege = messege,
                            currMethod = currMethod
                            )
+
 
 if __name__ == '__main__':
     app.run(debug=True)
