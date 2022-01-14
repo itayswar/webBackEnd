@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    {% if ind %}
+        <h2> get front</h2>
+        <form action="/assignment11/outer_source" method="POST">
+            <input type="number" name="front">
+            <input type="submit" value="get front">
+        </form>
+        <h2> get back</h2>
+        <form action="/assignment11/outer_source" method="POST">
+            <input type="number" name="back">
+            <input type="submit" value="get back">
+        </form>
+    {% endif %}
+    {% if front %}
+        <h2>get back</h2>
+        <form action="/assignment11/outer_source" method="POST">
+            <input type="number" name="back">
+            <input type="submit" value="get back">
+        </form>
+        <script> get_user({{ front }})</script>
+    {% endif %}
+
+    {% if backend %}
+        <h2> get front</h2>
+        <form action="/assignment11/outer_source" method="POST">
+            <input type="number" name="front">
+            <input type="submit" value="get front">
+        </form>
+    {% endif %}
+
+     <h1> All users in JSON </h1>
+    {% if list %}
+        <h2> users:</h2>
+        {{ list }}
+    {% else %}
+        <h2> Get users</h2>
+        <form action="/assignment11/users" method="GET">
+            <input type="submit" value="getAll">
+        </form>
+    {% endif %}
+<h1>  </h1>
+</body>
+</html>
