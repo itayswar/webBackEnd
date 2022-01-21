@@ -1,6 +1,12 @@
 from flask import Flask, redirect, url_for, request, Blueprint
 from flask import render_template , session
 import mysql.connector
+import mysql
+import mysql.connector
+import requests
+from flask import Flask, render_template, session, request, redirect, Blueprint, Response
+import json
+
 
 
 def interact_db(query, query_type: str):
@@ -105,5 +111,16 @@ def get_user():
     return render_template('assignment10.html',
                            messege = messege,
                            currMethod = currMethod)
+
+@assignment10.route('/assignment12/restapi_users', defaults={'user_name': 'itay'})
+@assignment10.route('/assignment12/restapi_users/<int:user_id>')
+def get_user_data(user_name):
+    query = f'''
+    SELECT * from users WHERE user_name={user_name}
+    '''
+    user_data = interact_db(query=query, query_type='fetch', named_tuple=None, dictionary=True)
+    if not user_data:
+        user_data = {'error': f'user with name {user_name} was not found'}
+    return Response(json.dumps(user_data), mimetype='application/json')
 
 
